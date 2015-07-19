@@ -25,6 +25,7 @@ import jetbrains.buildServer.vcs.SVcsModification;
 import jetbrains.buildServer.vcs.SelectPrevBuildPolicy;
 import jetbrains.buildServer.vcs.VcsException;
 import jetbrains.buildServer.vcs.VcsRootInstanceEntry;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -134,6 +135,12 @@ public class MockSRunningBuild implements SRunningBuild {
 	public void stop(User arg0, String arg1) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@NotNull
+	@Override
+	public Collection<SBuildFeatureDescriptor> getBuildFeaturesOfType(String s) {
+		return null;
 	}
 
 	public Date convertToAgentTime(Date arg0) {

@@ -29,11 +29,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -293,6 +289,21 @@ public class SlackNotificationImpl implements SlackNotification {
                 attachment.addField("Failed Tests", StringUtil.join(", ", failedTestNames) + truncated, false);
             }
         }
+
+        //testing to add parameters field
+        attachment.addField("Triggered By", this.payload.getParameters().get("teamcity.build.triggeredBy.username"), false);
+        attachment.addField("VCS Branch", this.payload.getParameters().get("teamcity.build.branch"), false);
+        attachment.addField("Deployed To", this.payload.getParameters().get("Environment"), false);
+        /*
+        List<String> klist = new ArrayList<String>(this.payload.getParameters().keySet());
+        List<String> vlist = new ArrayList<String>(this.payload.getParameters().values());
+        for (Map.Entry<String, String> entry : this.payload.getParameters().entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            attachment.addField(key, value, false);
+        }
+        */
+
 
         StringBuilder sbCommits = new StringBuilder();
 
