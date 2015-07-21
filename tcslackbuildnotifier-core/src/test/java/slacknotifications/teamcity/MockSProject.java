@@ -14,6 +14,8 @@ import jetbrains.buildServer.vcs.SVcsRoot;
 import jetbrains.buildServer.vcs.UnknownVcsException;
 import jetbrains.buildServer.vcs.VcsRootInstance;
 import org.jdom.Element;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.util.*;
@@ -71,6 +73,12 @@ public class MockSProject implements SProject {
 
 	public SBuildType findBuildTypeById(String btName) {
 		return buildTypes.get(btName);
+	}
+
+	@Nullable
+	@Override
+	public SBuildType findBuildTypeByExternalId(String s) {
+		return null;
 	}
 
 	public void addANewBuildTypeToTheMock(SBuildType build){
@@ -458,6 +466,12 @@ public class MockSProject implements SProject {
 	@Override
 	public List<BuildTypeTemplate> getAvailableTemplates() {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@NotNull
+	@Override
+	public List<SVcsRoot> getAvailableVcsRoots() {
 		return null;
 	}
 

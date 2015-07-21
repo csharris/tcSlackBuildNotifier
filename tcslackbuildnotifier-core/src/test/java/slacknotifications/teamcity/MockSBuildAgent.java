@@ -6,6 +6,7 @@ import jetbrains.buildServer.serverSide.*;
 import jetbrains.buildServer.serverSide.comments.Comment;
 import jetbrains.buildServer.users.SUser;
 import jetbrains.buildServer.users.User;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
 import java.util.List;
@@ -229,6 +230,12 @@ public class MockSBuildAgent implements SBuildAgent, BuildAgent {
 	public long getIdleTime() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@NotNull
+	@Override
+	public String describe(boolean b) {
+		return null;
 	}
 
 	public void setEnabled(boolean arg0, SUser arg1, String arg2, long arg3) {

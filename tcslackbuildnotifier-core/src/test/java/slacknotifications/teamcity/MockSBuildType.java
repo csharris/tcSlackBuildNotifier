@@ -21,11 +21,14 @@ import jetbrains.buildServer.users.User;
 import jetbrains.buildServer.util.Option;
 import jetbrains.buildServer.vcs.*;
 import org.jdom.Element;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class MockSBuildType implements SBuildType {
@@ -532,9 +535,27 @@ public class MockSBuildType implements SBuildType {
 		return null;
 	}
 
+	@NotNull
+	@Override
+	public <T> T getOptionDefaultValue(@NotNull Option<T> option) {
+		return null;
+	}
+
 	public <T> void setOption(Option<T> arg0, T arg1) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@NotNull
+	@Override
+	public Collection<Option> getOwnOptions() {
+		return null;
+	}
+
+	@NotNull
+	@Override
+	public Collection<Option> getOptions() {
+		return null;
 	}
 
 	public void addDependency(Dependency arg0)
@@ -650,6 +671,12 @@ public class MockSBuildType implements SBuildType {
 		return null;
 	}
 
+	@NotNull
+	@Override
+	public Collection<SBuildFeatureDescriptor> getBuildFeaturesOfType(String s) {
+		return null;
+	}
+
 	public String getBuildNumberPattern() {
 		// TODO Auto-generated method stub
 		return null;
@@ -731,6 +758,16 @@ public class MockSBuildType implements SBuildType {
 		return false;
 	}
 
+	@Override
+	public boolean replaceInValues(Pattern pattern, String s) {
+		return false;
+	}
+
+	@Override
+	public boolean textValueMatches(Pattern pattern) {
+		return false;
+	}
+
 	public void setBuildNumberPattern(String arg0) {
 		// TODO Auto-generated method stub
 		
@@ -740,6 +777,12 @@ public class MockSBuildType implements SBuildType {
 			Map<String, String> arg2) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Nullable
+	@Override
+	public SBuildFeatureDescriptor findBuildFeatureById(@NotNull String s) {
+		return null;
 	}
 
 	public boolean updateBuildRunner(String arg0, String arg1, String arg2,
